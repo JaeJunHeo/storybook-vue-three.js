@@ -1,0 +1,31 @@
+import WebglExample from "./webglExample.vue";
+
+export default {
+    title: 'WebGL 예제/예제',
+    component: WebglExample,
+    argTypes: {
+        component:{
+            table: {
+                disable: true
+            },
+            control: false
+        }
+    },
+    parameters: {
+        docs: {
+            page: null,
+        },
+    },
+};
+// https://storybook.js.org/docs/react/essentials/controls
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { WebglExample },
+  template: `
+        <webgl-example v-bind="$props"/>
+  `
+});
+
+export const exampleDefault = Template.bind({});
+exampleDefault.storyName = "예제";
